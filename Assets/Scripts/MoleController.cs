@@ -27,27 +27,27 @@ public class MoleController : MonoBehaviour {
 
 	IEnumerator Move()
 	{
+        //makes the moles wait between 1 and 4 seconds before moving
         float wait = Random.Range(1f, 4f);
         print(wait);
         yield return new WaitForSeconds(wait);
         Vector2 position = transform.position;
         float yposition = transform.position.y;
+        //moves the moles up
         if (transform.position.y < -2.75)
         {
 
             rigidbody2D.velocity = new Vector2(0, 2);
-            //CheckPosition();
+           
            
         }
-        //else
-        //{
-        //    rigidbody2D.velocity = new Vector2(0, -1);
-        //}
+
 
     }
 
     void CheckPosition()
     {
+        //moves moles up if they are in their hole or down if they are already up
         if (transform.position.y > -2.75)
         {
             rigidbody2D.velocity = new Vector2(0, -2);
